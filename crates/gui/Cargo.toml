@@ -1,7 +1,7 @@
 [package]
-name = "flipperzero-sys"
+name = "flipperzero-gui"
 version = "0.6.0-alpha"
-description = "Rust for Flipper Zero"
+description = "Rust GUI bindings for Flipper Zero"
 repository = "https://github.com/dcoles/flipperzero-rs"
 readme = "../../README.md"
 license = "MIT"
@@ -22,4 +22,6 @@ bench = false
 test = false
 
 [dependencies]
-real_c_string = "1.0.0"
+flipperzero-sys = { path = "../sys", version = "0.6.0-alpha" }
+# FIXME: this is only required for access to `Align` enum which may be mvoved to this crate
+flipperzero = { path = "../flipperzero", version = "0.6.0-alpha", features = ["alloc"] }
